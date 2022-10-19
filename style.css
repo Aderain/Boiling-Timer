@@ -1,0 +1,124 @@
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;500;600;700&display=swap');
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    font-weight: normal;
+}
+
+body{
+    height: 100vh;
+    width: 100vw;
+    display: flex;
+    align-items: center;
+    background-color: rgb(1, 123, 223);
+}
+
+.container{
+    width: 500px;
+    margin-inline: auto;
+    padding: 30px;
+    background-color: #fff;
+    border-radius: 6px;
+}
+
+.container form{
+    display: flex;
+    justify-content: space-between;
+    /* column-gap: 30px; */
+    margin-bottom: 30px;
+}
+
+.timer-input{
+    border: 0;
+    border-bottom: 1px solid darkgrey;
+    padding-block: 15px;
+    font-size: 1rem;
+    flex: 0.95;
+}
+
+.timer-input:focus{
+    outline: 0;
+}
+
+.timer-input[placeholder]{
+    color: darkgrey;
+    font-size: 1rem;
+}
+
+.btn{
+    background-color: rgb(235, 235, 235);
+    border: 0;
+    padding: 15px;
+}
+
+.boiling-timer{
+    display: flex;
+    column-gap: 15px;
+    row-gap: 15px;
+    flex-wrap: wrap;
+}
+
+.timer{
+    width: 50px;
+    aspect-ratio: 1;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    color: #fff;
+    font-weight: bold;
+    font-size: 1.25rem;
+
+    border-radius: 50%;
+    border: none;
+    background-color: orange;
+
+    animation-name: timerScale;
+    animation-duration: 1s;
+    animation-iteration-count: infinite;
+    transition: 0.2s;
+}
+
+
+.remove-timer{
+    animation-name: timerRemove;
+}
+
+@keyframes timerRemove {
+    1%{
+       transform: scale(1); 
+    }
+    50%{
+        transform: scale(1.15);
+    }
+    100%{
+        opacity: 0;
+    }
+}
+
+@keyframes timerScale {
+    1% {transform: scale(1)}
+    50% {transform: scale(0.9)}
+    100% {transform: scale(1)}
+}
+
+@media screen and (max-width: 500px) {
+    .container{
+        margin-inline: 15px;
+    }
+}
+
+@media screen and (max-width: 365px) {
+    .container form{
+        flex-direction: column;
+    }
+
+    .timer-input{
+        flex: 1;
+        margin-bottom: 15px;
+    }
+}
